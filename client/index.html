@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<script type="text/javascript" src='./js/libraries/angular.js'></script>
+		<script type="text/javascript" src='./js/libraries/angular-route.js'></script>
+		<script type="text/javascript" src="./js/app.js"></script>
+		<script type="text/javascript" src="./js/factories/customer.fctry.js"></script>
+		<script type="text/javascript" src="./js/factories/order.fctry.js"></script>
+		<script type="text/javascript" src="./js/factories/product.fctry.js"></script>
+		<script type="text/javascript" src="./js/factories/dashboard.fctry.js"></script>
+		<script type="text/javascript" src="./js/controllers/customers.ctrl.js"></script>
+		<script type="text/javascript" src="./js/controllers/orders.ctrl.js"></script>
+		<script type="text/javascript" src="./js/controllers/products.ctrl.js"></script>
+		<script type="text/javascript" src="./js/controllers/dashboard.ctrl.js"></script>
+		<script type="text/javascript" src='./js/libraries/jquery.js'></script>
+		<script type="text/javascript" src='./js/libraries/bootstrap.js'></script>
+		<link rel="stylesheet" href="./stylesheets/bootstrap.css">
+		<link rel="stylesheet" href="./stylesheets/main.css">
+		<title>Dashboard of my FUTURE | Store</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12" ng-app="myApp">
+					<h5><a href="#/dashboard" class="btn btn-link">Dashboard</a> | <a href="#/products" class="btn btn-link">Products</a> | <a href="#/orders" class="btn btn-link">Orders</a> | <a href="#/customers" class="btn btn-link">Customers</a> | <a href="#/settings" class="btn btn-link">Settings</a></h5>
+					<div ng-view="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

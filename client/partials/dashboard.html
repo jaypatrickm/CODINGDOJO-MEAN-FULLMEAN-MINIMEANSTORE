@@ -1,0 +1,48 @@
+<div ng-controller="dashboardController">
+	<div class="row">
+		<div class="col-sm-12">
+			<h3 id="error"></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-2">
+			<h4>Product Filter</h4>
+			<input type="text" ng-model="filter_product" placeholder="search name...">
+			<h4>Order Filter</h4>
+			<input type="text" ng-model="filter_order" placeholder="search name...">
+			<h4>Customer Filter</h4>
+			<input type="text" ng-model="filter_customer" placeholder="search name...">
+		</div>
+		<div class="col-sm-10">
+			<div id="product-list">
+				<h4>Product List</h4>
+				<ul id="dash-item-list" ng-init="productCount = 2">
+					<li ng-repeat="product in products | filter: filter_product | orderBy: 'created_at' | limitTo: productCount">
+						<img ng-src="{{product.url}}" class="img-responsive"/>
+						<p><span ng-bind='product.name'></span></p>
+						<p>qty <span ng-bind='product.quantity'></span></p>
+					</li>
+				</ul>
+				<button ng-show="products.length - productCount > 0" ng-click='productCount = productCount + 2' class="btn btn-link">show all products({{products.length - productCount}})...</button>
+			</div>
+			<div id="recent-orders">
+				<h4>Recent Orders</h4>
+				<ul id="recent-order-list" ng-init="orderCount = 2">
+					<li ng-repeat="order in orders | filter : filter_order | orderBy:'created_at' | limitTo: orderCount">
+						<p><span ng-bind='order.customer_name'></span> purchased <span ng-bind='order.qty'></span> <span ng-bind='order.product'></span>(s) <span ng-bind='order.created_at'></span></p>
+					</li>
+				</ul>
+				<button ng-show="orders.length - orderCount > 0" ng-click='orderCount = orderCount + 2' class="btn btn-link">show all orders({{orders.length - orderCount}})...</button>
+			</div>
+			<div id="new-customers">
+				<h4>New Customers</h4>
+				<ul id="new-customer-list" ng-init="count = 2">
+					<li ng-repeat="customer in customers | filter : filter_customer | orderBy:'created_at' | limitTo: count">
+						<p><span ng-bind='customer.name'></span> joined the store <span ng-bind='customer.created_at'></span></p>
+					</li>
+				</ul>
+				<button ng-show="customers.length - count > 0" ng-click='count = count + 2' class="btn btn-link">show more customers({{customers.length - count}})...</button>
+			</div>
+		</div>
+	</div>
+</div>

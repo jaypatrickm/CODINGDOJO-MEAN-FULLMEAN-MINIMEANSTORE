@@ -1,0 +1,22 @@
+img {
+	width: 100px;
+	margin: 0 auto;
+}
+ul#dash-item-list li {
+	width: 160px;
+	height: 160px;
+	display: inline-block;
+	border: 1px solid #000;
+	text-align: center;
+}
+ul#product-item-list li {
+	width: 160px;
+	height: 160px;
+	display: inline-block;
+	border: 1px solid #000;
+	text-align: center;
+}
+	ul#product-item-list li img, ul#dash-item-list li img {
+		max-height: 100px;
+		width: auto;
+	}
